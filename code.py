@@ -1,5 +1,3 @@
-# Support for Spritesheet creation: https://gist.github.com/todbot/99ee476b600e19da7793a94155ff3805
-
 import board
 import digitalio
 import time
@@ -219,7 +217,7 @@ def fortniteStraightForward():
 
 # Init Display
 displayio.release_displays()
-i2c = busio.I2C(scl=board.GP17, sda=board.GP16) # This RPi Pico way to call I2C
+i2c = busio.I2C(scl=board.GP17, sda=board.GP16)
 display_bus = displayio.I2CDisplay(i2c, device_address=0x3c)
 
 WIDTH = 132
@@ -227,32 +225,26 @@ HEIGHT = 64
 BORDER = 5
 display = adafruit_displayio_sh1106.SH1106(display_bus, width=WIDTH, height=HEIGHT)
 
-### SPRITE START
 sprite_fname = "spritesheet.bmp"
 sprite_cnt = 3*1
 sprite_w,sprite_h = 40,40
 
 sprite_sheet = displayio.OnDiskBitmap(open(sprite_fname, "rb"))
 sprite_palette = sprite_sheet.pixel_shader
-# this below will be faster than OnDiskBitmap, but not all boards have enough RAM
-# import adafruit_imageload
-# sprite_sheet, sprite_palette = adafruit_imageload.load(sprite_fname)
-
-sprite_palette.make_transparent(0)  # make background color transparent
-
+sprite_palette.make_transparent(0)  
 sprite = displayio.TileGrid(sprite_sheet, pixel_shader=sprite_palette,
                             width = 3, height = 1,
                             tile_width = sprite_w, tile_height = sprite_h)
 
-maingroup = displayio.Group(scale=1) # make 4x big
+maingroup = displayio.Group(scale=1)
 maingroup.append(sprite)
 display.show(maingroup)
 sprite[0] = 1
 sprite[1] = 2
 sprite[2] = 3
 maingroup.x = 6
-maingroup.y = ((HEIGHT - sprite_h) // 2 - 1) + 3
-### SPRITE END
+maingroup.y = ((HEIGHT - sprite_h) // 2 - 1) + 3   # I added 3 because my display line 1 and 3 is broken. You can remove it.
+
 
 # Start main loop
 print("Wait for button press.")
