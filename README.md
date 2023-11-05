@@ -25,18 +25,19 @@ The Fortnite modes can be canceled with the _return button_ (here green). ⚠️
 
 # Requirements
 You need the following by now:
- - A [https://www.raspberrypi.com/products/raspberry-pi-pico/](Raspberry Pi Pico) connected via USB
- - A separate Display. I used a [https://www.az-delivery.de/products/1-3zoll-i2c-oled-display](1,3" OLED I2C 128 x 64 Pixel Display with a SSH 1106 controller). ⚠️ If you use another display you must adjust the display settings in the code.
+ - A [Raspberry Pi Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/) connected via USB
+ - A separate Display. I used a [1,3" OLED I2C 128 x 64 Pixel Display with a SSH 1106 controller](https://www.az-delivery.de/products/1-3zoll-i2c-oled-display). ⚠️ If you use another display you must adjust the display settings in the code.
  - A couple of momentary switches.
- - For development I used [https://thonny.org/](Thonny GUI) and [https://circuitpython.org/board/raspberry_pi_pico/](Circuit Python) because it supports the Keyboard HID better. You must add the [https://docs.circuitpython.org/projects/display_text/en/latest/index.html](following libraries from Adafruit) then manually:
+ - For development I used [Thonny GUI](https://thonny.org/) and [Circuit Python](https://circuitpython.org/board/raspberry_pi_pico/) because it supports the Keyboard HID better. You must add the [following libraries from Adafruit](https://docs.circuitpython.org/projects/display_text/en/latest/index.html) then manually:
    - _adafruit_display_text_
    - _adafruit_displayio_
    - _adafruit_hid_
-   - For adjusting the spritesheets / icons I recommend this [https://gist.github.com/todbot/99ee476b600e19da7793a94155ff3805](Emoji Flipper project from todbot). It helps to understand the logic and find the right tool to create spritesheets.
+   - For adjusting the spritesheets / icons I recommend this [Emoji Flipper project from todbot](https://gist.github.com/todbot/99ee476b600e19da7793a94155ff3805). It helps to understand the logic and find the right tool to create spritesheets.
   
-# Wiring (see also code)
+# Wiring
+To check and change the wired GPIO pins please also have a look in the code.
    - The three menu buttons are connected to GPIO 0, 1 and 2 and soldered with a resistor to ground.
-   - The reset button is connected to the RUN pin as described [https://www.raspberrypi.com/news/how-to-add-a-reset-button-to-your-raspberry-pi-pico/](here).
+   - The reset button is connected to the RUN pin [as described here](https://www.raspberrypi.com/news/how-to-add-a-reset-button-to-your-raspberry-pi-pico/).
    - Display I2C is on GPIO 16 and 17. Power and ground are connected to the Pico pins. 
  
 # Not used random mode
