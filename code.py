@@ -276,8 +276,8 @@ while True:
                 currSubMode = SUBMODE_F_FORWARD                
                 
             elif button3.value:
-                showDebugInfo(3)
-                clearSubMode()
+                showDebugInfo(3)                
+                clearMainMode()
             
         elif currMode == MODE_TEAMS:
             if button1.value:
@@ -289,8 +289,8 @@ while True:
                 currSubMode = SUBMODE_T_VIDEO
                 
             elif button3.value:
-                showDebugInfo(3)
-                clearSubMode()
+                showDebugInfo(3)                
+                clearMainMode()
                 
         else: # main menu
             if button1.value:
