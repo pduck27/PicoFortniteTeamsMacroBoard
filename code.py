@@ -1,4 +1,4 @@
-# https://gist.github.com/todbot/99ee476b600e19da7793a94155ff3805
+# Support for Spritesheet creation: https://gist.github.com/todbot/99ee476b600e19da7793a94155ff3805
 
 import board
 import digitalio
@@ -227,37 +227,6 @@ HEIGHT = 64
 BORDER = 5
 display = adafruit_displayio_sh1106.SH1106(display_bus, width=WIDTH, height=HEIGHT)
 
-# Make the display context
-
-### Text START
-# splash = displayio.Group()
-# display.show(splash)
-# 
-# color_bitmap = displayio.Bitmap(WIDTH, HEIGHT, 1)
-# color_palette = displayio.Palette(1)
-# color_palette[0] = 0xFFFFFF  # White
-# 
-# bg_sprite = displayio.TileGrid(color_bitmap, pixel_shader=color_palette, x=0, y=0)
-# splash.append(bg_sprite)
-# 
-# # Draw a smaller inner rectangle
-# inner_bitmap = displayio.Bitmap(WIDTH - BORDER * 2, HEIGHT - BORDER * 2, 1)
-# inner_palette = displayio.Palette(1)
-# inner_palette[0] = 0x000000  # Black
-# inner_sprite = displayio.TileGrid(
-#     inner_bitmap, pixel_shader=inner_palette, x=BORDER, y=BORDER
-# )
-# splash.append(inner_sprite)
-# 
-# # Draw a label
-# text = "Fortnite | Teams | Reset"
-# font = terminalio.FONT
-# text_area = label.Label(
-#     font, text=text, color=0xFFFFFF, x=6, y=HEIGHT // 2 - 1
-# )
-#splash.append(text_area)
-### Text ENDE
-
 ### SPRITE START
 sprite_fname = "spritesheet.bmp"
 sprite_cnt = 3*1
@@ -283,7 +252,7 @@ sprite[1] = 2
 sprite[2] = 3
 maingroup.x = 6
 maingroup.y = ((HEIGHT - sprite_h) // 2 - 1) + 3
-### SPRITE ENDE
+### SPRITE END
 
 # Start main loop
 print("Wait for button press.")
